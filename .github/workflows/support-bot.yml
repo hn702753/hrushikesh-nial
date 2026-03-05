@@ -1,0 +1,36 @@
+name: Support Ticket Bot
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  diagnose_and_label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Analyze Issue Content
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body.toLowerCase();
+            let label = "general-support";
+            
+            // Logic: If the user mentions hardware keywords
+            if (body.includes("battery") || body.includes("overheating")) {
+              label = "hardware-failure";
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: "⚠️ High Priority: I've detected a hardware-related issue. Assigning to our Hardware Specialist."
+              });
+            }
+
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: [label]
+            });
