@@ -1,1 +1,390 @@
-# Hrushikesh-Nial
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hrushikesh Nial - Technical Support Engineer</title>
+    <style>
+        :root {
+            --primary: #4A0404;       /* Rich Dark Red / Burgundy */
+            --accent: #8B0000;        /* Deep Red Accent */
+            --accent-hover: #660000;  /* Darker Red Hover */
+            --text-dark: #2B2D42;     /* Charcoal Body Text */
+            --text-muted: #5C5D67;    /* Muted Gray */
+            --bg-light: #FDF8F8;      /* Warm Light Page Background */
+            --card-bg: #FFFFFF;
+            --border: #F0D5D5;        /* Subtle Light Red Border */
+            --badge-bg: #FDE8E8;     /* Soft Red Badge Background */
+            --badge-border: #F8B4B4; /* Light Red Badge Border */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(74, 4, 4, 0.08);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        /* Header - Left Aligned Profile Layout */
+        header {
+            background: var(--primary);
+            color: #FFFFFF;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .header-content {
+            text-align: left;
+        }
+
+        .header-content h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            color: #FFFFFF;
+        }
+
+        .header-content h2 {
+            font-size: 1.1rem;
+            color: #F8B4B4;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #FDE8E8;
+            text-align: right;
+        }
+
+        .contact-info span, .contact-info a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+            color: #FDE8E8;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #FFFFFF;
+        }
+
+        /* Main Content Grid */
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* Profile Summary */
+        .summary p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* Experience Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border);
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.05rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .timeline-item .date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        /* Responsibilities List */
+        .responsibilities {
+            list-style: none;
+        }
+
+        .responsibilities li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.92rem;
+            color: var(--text-dark);
+        }
+
+        .responsibilities li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* Sidebar Skills & Badges */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background: var(--badge-bg);
+            color: var(--accent);
+            border: 1px solid var(--badge-border);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .education-item, .cert-item {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .education-item strong, .cert-item strong {
+            display: block;
+            color: var(--primary);
+        }
+
+        .education-item span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Footer Buttons */
+        .actions {
+            background: #FBF0F0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-info {
+                text-align: left;
+                align-items: flex-start;
+            }
+            .contact-info span, .contact-info a {
+                justify-content: flex-start;
+            }
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .actions {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-content">
+            <h1>HRUSHIKESH NIAL</h1>
+            <h2>Technical Support Engineer (5+ Years Experience)</h2>
+        </div>
+        <div class="contact-info">
+            <span>📱 9178037776</span>
+            <span>✉️ nialhrushikesh@gmail.com</span>
+            <span>📍 Electronic City, Bangalore, KA-560100</span>
+            <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank">🔗 LinkedIn Profile</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <main>
+            <section class="summary">
+                <h3 class="section-title">Profile Summary</h3>
+                <p>Highly skilled and customer-oriented Technical Support Engineer with 5+ years of experience diagnosing, troubleshooting, and resolving technical issues for clients across various industries. Proficient in providing remote and onsite support for hardware, software, and network systems, ensuring quick resolution and minimal downtime. Adept at handling a wide range of technologies including Windows and macOS with strong problem-solving abilities and a dedicated track record of maintaining efficient ticketing systems.</p>
+            </section>
+
+            <section>
+                <h3 class="section-title">Key Responsibilities</h3>
+                <ul class="responsibilities">
+                    <li><strong>Customer Support:</strong> Address queries via phone, email, live chat, or remote desktop tools.</li>
+                    <li><strong>Troubleshooting:</strong> Diagnose and resolve complex problems related to operating systems, networks, and software applications.</li>
+                    <li><strong>System Installation:</strong> Assist with installation, configuration, and setup of hardware, software, and network equipment.</li>
+                    <li><strong>Ticket Management:</strong> Track and manage support tickets using tools like Wolken and ServiceNow.</li>
+                    <li><strong>Remote Support:</strong> Leverage remote desktop tools to resolve client issues efficiently without physical presence.</li>
+                    <li><strong>Documentation:</strong> Maintain clear logs of issues, resolutions, and technical support processes.</li>
+                    <li><strong>Collaborative Support:</strong> Work alongside development and IT infrastructure teams to resolve escalated challenges.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="section-title">Employment History</h3>
+                <div class="timeline-item">
+                    <h3>Broadcom</h3>
+                    <div class="date">February 2022 – Present</div>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">Technical Support Engineer</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Lenovo India Private Limited</h3>
+                    <div class="date">July 2021 – January 2022</div>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">Technical Support Specialist</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Gram Tarang Employability Training Services</h3>
+                    <div class="date">April 2014 – December 2016</div>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">Technical Trainer & Support</p>
+                </div>
+            </section>
+        </main>
+
+        <aside>
+            <section>
+                <h3 class="section-title">Technical Skills</h3>
+                <div class="badge-container">
+                    <span class="badge">Hardware & Software</span>
+                    <span class="badge">Windows & macOS</span>
+                    <span class="badge">Linux</span>
+                    <span class="badge">Networking (TCP/IP)</span>
+                    <span class="badge">DNS / DHCP / VPN</span>
+                    <span class="badge">Remote Desktop</span>
+                    <span class="badge">Wolken</span>
+                    <span class="badge">ServiceNow</span>
+                    <span class="badge">IT Security</span>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">Soft Skills</h3>
+                <div class="badge-container">
+                    <span class="badge">Problem Solving</span>
+                    <span class="badge">Customer Service</span>
+                    <span class="badge">Time Management</span>
+                    <span class="badge">Patience & Empathy</span>
+                    <span class="badge">Collaboration</span>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">Certifications & Courses</h3>
+                <div class="cert-item">
+                    <strong>PGDCA</strong>
+                </div>
+                <div class="cert-item">
+                    <strong>Desktop/Laptop Chip-level Repair</strong>
+                </div>
+                <div class="cert-item">
+                    <strong>Data Entry Operator</strong>
+                </div>
+            </section>
+
+            <section>
+                <h3 class="section-title">Education</h3>
+                <div class="education-item">
+                    <strong>Bachelor of Computer Applications (BCA)</strong>
+                    <span>Pursuing / Continuing</span>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <div class="actions">
+        <button onclick="window.print()" class="btn btn-outline">Print / Save as PDF</button>
+        <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" class="btn">LinkedIn Profile</a>
+        <a href="mailto:nialhrushikesh@gmail.com" class="btn">Contact Me</a>
+    </div>
+</div>
+
+</body>
+</html>
