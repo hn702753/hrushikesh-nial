@@ -42,7 +42,7 @@
             border: 1px solid var(--border);
         }
 
-        /* Header - Left Aligned Profile Layout */
+        /* Header Layout */
         header {
             background: var(--primary);
             color: #FFFFFF;
@@ -58,12 +58,23 @@
             text-align: left;
         }
 
+        /* Clickable Name Link Style */
+        .name-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .name-link:hover {
+            opacity: 0.85;
+            text-decoration: underline;
+        }
+
         .header-content h1 {
             font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: -0.5px;
             margin-bottom: 6px;
-            color: #FFFFFF;
         }
 
         .header-content h2 {
@@ -278,7 +289,9 @@
 <div class="container">
     <header>
         <div class="header-content">
-            <h1>HRUSHIKESH NIAL</h1>
+            <h1>
+                <a href="https://hrushikesh-nial.github.io/" target="_blank" class="name-link">HRUSHIKESH NIAL</a>
+            </h1>
             <h2>Technical Support Engineer (5+ Years Experience)</h2>
         </div>
         <div class="contact-info">
