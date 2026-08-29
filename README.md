@@ -376,6 +376,14 @@
                     <span>Pursuing / Continuing</span>
                 </div>
             </section>
+
+            <section>
+                <h3 class="section-title">Languages Known</h3>
+                <div class="badge-container">
+                    <span class="badge">English</span>
+                    <span class="badge">Hindi</span>
+                </div>
+            </section>
         </aside>
     </div>
 
